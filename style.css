@@ -1,0 +1,177 @@
+body {
+  margin: 0;
+  height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #0a0a0a, #1a001f);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  color: white;
+}
+
+/* Glass Card */
+.card {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(15px);
+  border-radius: 25px;
+  padding: 30px 20px;
+  text-align: center;
+  width: 90%;
+  max-width: 350px;
+  box-shadow: 0 0 30px rgba(255, 0, 128, 0.3);
+  animation: fadeIn 1s ease;
+}
+
+
+.screen {
+  display: none;
+}
+
+.screen.active {
+  display: block;
+}
+
+h1 {
+  color: #ff4da6;
+}
+
+h2 {
+  color: #ffcce6;
+}
+
+p {
+  color: #ddd;
+}
+
+button {
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+  padding: 14px;
+  border: none;
+  border-radius: 25px;
+  background: linear-gradient(45deg, #ff4da6, #ff66cc);
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+h1 {
+  font-size: 26px;
+}
+
+h2 {
+  font-size: 20px;
+}
+
+p {
+  font-size: 15px;
+}
+
+
+/* Smooth Hearts */
+.background-hearts span {
+  position: absolute;
+  bottom: -20px;
+  color: #ff4da6;
+  font-size: 18px;
+  animation: floatUp 6s linear infinite;
+  opacity: 0.6;
+}
+
+@keyframes floatUp {
+  from { transform: translateY(0); }
+  to { transform: translateY(-100vh); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.love-photo {
+  width: 80%;           /* same width for all photos */
+  max-width: 250px;     /* cap the size */
+  height: 200px;        /* fixed height for consistency */
+  object-fit: cover;    /* ensures photos fill frame nicely */
+  border-radius: 20px;
+  margin: 20px 0;
+  box-shadow: 0 0 20px rgba(255,0,128,0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+.love-photo.zoom {
+  transform: scale(1.2);
+  box-shadow: 0 0 40px rgba(255,0,128,0.7);
+}
+.love-photo {
+  background: rgba(255,255,255,0.05); /* subtle card-like background */
+  border: 2px solid rgba(255,0,128,0.4); /* soft frame */
+  padding: 5px; 
+  box-sizing: border-box;
+}
+
+
+body {
+  padding: 10px;
+}
+
+
+.roses span {
+  position: absolute;
+  top: -20px;
+  font-size: 18px;
+  animation: fall 8s linear infinite;
+  opacity: 0.7;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh);
+  }
+}
+
+/* back button */
+.back {
+  position: absolute;
+  right: 15px;
+  bottom: 15px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.card {
+  position: relative;
+}
+
+
+
+.noBtn {
+  position: relative;
+  transition: transform 0.2s;
+}
+
+/*Doll*/
+.doll-float {
+  position: absolute;   /* outside card */
+  top: 95px;            /* distance from top of screen */
+  left: 50%;            /* center horizontally */
+  transform: translateX(-50%);
+  width: 250px;
+  max-width: 75%;
+  z-index: 100;         /* above everything */
+  animation: floatDoll 2s ease-in-out infinite alternate;
+}
+
+@keyframes floatDoll {
+  from { transform: translateX(-50%) translateY(0px); }
+  to { transform: translateX(-50%) translateY(-15px); }
+}
+
+

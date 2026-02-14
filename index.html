@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Love QuiZzz.. 💖</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<audio id="bgMusic" loop>
+  <source src="audio/romantic-melody.mp3" type="audio/mp3">
+</audio>
+
+<div class="background-hearts"></div>
+
+<!-- Doll only for first page -->
+<img src="Doll.png" class="doll-float" id="welcomeDoll">
+
+<div class="card">
+
+<!-- Welcome -->
+<div class="screen active" id="welcome">
+   <h1>   Hey Duckling! 💕</h1>
+  <p>Welcome to Our Love Quiz 💌</p>
+  <button onclick="startQuiz()">Start</button>
+</div>
+
+
+<!-- Q1 -->
+<div class="screen" id="q1">
+  <h2>When did you start loving me? 🥺</h2>
+  <button onclick="next('q2')">First day we met</button>
+  <button onclick="next('q2')">Slowly over time</button>
+  <button onclick="next('q2')">Still falling daily</button>
+</div>
+
+<!-- Q2 -->
+<div class="screen" id="q2">
+  <h2>What am I to you? 💖</h2>
+  <button onclick="next('q3')">Your peace</button>
+  <button onclick="next('q3')">Your happiness</button>
+  <button onclick="next('q3')">Your forever</button>
+  <span class="back" onclick="back('q1')">⬅</span>
+</div>
+
+<!-- Q3 -->
+<div class="screen" id="q3">
+  <h2>Our best moment? 🌸</h2>
+  <button onclick="next('q4')">First talk</button>
+  <button onclick="next('q4')">First laugh</button>
+  <button onclick="next('q4')">Every moment</button>
+  <span class="back" onclick="back('q2')">⬅</span>
+</div>
+
+<!-- Q4 -->
+<div class="screen" id="q4">
+  <h2>Do you love me? 😘</h2>
+  <button onclick="next('q5')">Yes</button>
+  <button class="noBtn">No</button>
+  <span class="back" onclick="back('q3')">⬅</span>
+</div>
+
+<!-- No Cute Loop -->
+<div class="screen" id="no1">
+  <h2>Are you sure? 🥺</h2>
+  <button onclick="next('q5')">Okay Yes 💖</button>
+  <button onclick="next('no2')">Still No</button>
+  <span class="back" onclick="back('q4')">⬅</span>
+</div>
+
+<div class="screen" id="no2">
+  <h2>Think again... 😌</h2>
+  <button onclick="next('q5')">You Can't Say No bczz..I Love You ❤️</button>
+  <span class="back" onclick="back('no1')">⬅</span>
+</div>
+
+<!-- Q5 -->
+<div class="screen" id="q5">
+  <h2>Future with me? 💍</h2>
+  <button onclick="next('q6')">Maybe</button>
+  <button onclick="next('q6')">Yes</button>
+  <button class="noBtn">No</button>
+  <span class="back" onclick="back('q4')">⬅</span>
+</div>
+
+
+<!-- Q6 -->
+<div class="screen" id="q6">
+  <h2>Do I make you happy? 🥰</h2>
+  <button onclick="next('final')">Yes</button>
+  <button onclick="next('final')">Always</button>
+  <button onclick="next('final')">More than anything</button>
+  <button class="noBtn">No</button>
+  <span class="back" onclick="back('q5')">⬅</span>
+</div>
+
+<!-- Final -->
+<div class="screen" id="final">
+  <h1>I Love You 💖</h1>
+  <p>You are my today, tomorrow & forever 💌</p>
+  <button onclick="next('letter')">Continue 💕</button>
+</div>
+
+<!-- Letter -->
+<div class="screen" id="letter">
+  <h2>💌 A Letter For You</h2>
+  <p>
+    From the moment you came into my life,<br>
+    everything became more beautiful 🌸<br>
+    Your smile is my peace,<br>
+    your voice is my favorite sound,<br>
+    and your love is my strength 💖
+  </p>
+  <button onclick="next('photo')">Next</button>
+</div>
+
+<!-- Photo -->
+<div class="screen" id="photo">
+  <h2>Our Memories 📸</h2>
+  <img src="love.jpg" class="love-photo" id="memoryPhoto">
+  <button onclick="next('proposal')">Next</button>
+</div>
+<!-- Proposal -->
+<div class="screen" id="proposal">
+  <h1>💍 Will You Stay With Me Forever?</h1>
+  <button onclick="showFireworks()">Yes 💖</button>
+</div>
+
+<!-- Fireworks -->
+<div class="screen" id="fireworks">
+  <h1>I Love You Babe!! 🦋💋🫂 </h1>
+</div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
