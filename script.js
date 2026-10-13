@@ -5,7 +5,14 @@ function startQuiz() {
   show("q1");
 }
 
+let answersSaved = false;
+
 function next(id) {
+  if (id === "final" && !answersSaved) {
+    answersSaved = true;
+    saveQuizAnswers();
+  }
+
   show(id);
 }
 
@@ -98,3 +105,52 @@ if(memoryPhoto){
   });
 }
 
+// Firebase connection
+const firebaseConfig = {
+  apiKey: "AIzaSyDBIAR73pwdqYCG9yKWkvT5rjSHxUSYqB4",
+  authDomain: "love-me-5dcc4.firebaseapp.com",
+  projectId: "love-me-5dcc4",
+  storageBucket: "love-me-5dcc4.firebasestorage.app",
+  messagingSenderId: "227866563200",
+  appId: "1:227866563200:web:a67e409dae832556e80c65a"
+};
+
+if (!firebase.apps.length) {
+  firebase.initializeApp(firebaseConfig);
+}
+
+const db = firebase.firestore();
+const quizAnswers = {};
+
+function recordAnswer(question, answer) {
+  quizAnswers[question] = answer;
+}
+// Record answers without collecting a name
+const quizAnswers = {};
+
+document.addEventListener("click", function (e) {
+  const btn = e.target.closest("button");
+  if (!btn) return;
+
+  const screen = btn.closest(".screen");
+  if (!screen || !/^q[1-6]$/.test(screen.id)) return;
+
+  quizAnswers[screen.id] = btn.textContent.trim();
+}, true);
+
+// Save answers when the quiz reaches the final screen
+async function saveQuizAnswers() {
+  try {
+    await firebase.auth().signInAnonymously();
+
+    await firebase.firestore().collection("quizResponses").add({
+      answers: quizAnswers,
+      createdAt: firebase.firestore.FieldValue.serverTimestamp()
+    });
+
+    alert("Your answers have been saved anonymously! 💖");
+  } catch (error) {
+    console.error("Firebase save error:", error);
+    alert("Answers save nahi zale. Please try again.");
+  }
+      }
